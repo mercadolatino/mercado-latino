@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MERCADO LATINO | Productos y Sabores Latinoamericanos</title>
-    <meta name="description" content="Descubre tortillas, chiles, salsas, frijoles, conservas y productos latinoamericanos. Consulta disponibilidad y realiza tu consulta fácilmente por WhatsApp.">
+    <title>MERCADO LATINO | Catálogo Oficial y Sabores de Latinoamérica</title>
+    <meta name="description" content="Descubre el catálogo oficial con tortillas, chiles, salsas, frijoles y productos latinoamericanos. Realiza tu consulta y pedido fácilmente por WhatsApp.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
@@ -84,6 +84,9 @@
         
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
         .product-card { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; border: 1px solid var(--border-color); }
+        .product-image-container { width: 100%; height: 180px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid var(--border-color); }
+        .product-image-container img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; background: #fff; transition: var(--transition); }
+        .product-card:hover .product-image-container img { transform: scale(1.05); }
         .product-info { padding: 1.25rem; display: flex; flex-direction: column; flex-grow: 1; }
         .product-category { font-size: 0.75rem; text-transform: uppercase; color: var(--brand-orange); font-weight: 700; margin-bottom: 0.25rem; }
         .product-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
@@ -94,7 +97,6 @@
         .product-sku { font-size: 0.75rem; color: var(--text-muted); }
         .product-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
         .product-actions .btn { padding: 0.5rem; font-size: 0.8rem; }
-        .btn-full { grid-column: span 2; }
 
         /* Contacto & Footer */
         .contact-section { padding: 3rem 0; }
@@ -129,13 +131,13 @@
             <a href="#" class="logo">MERCADO <span>LATINO</span></a>
             <ul class="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#catalogo">Productos</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
                 <li><a href="#mayoristas">Mayoristas</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div class="header-actions">
                 <button class="btn-consulta-header" id="btnOpenConsulta">🛒 Mi consulta <span id="consultaCounter" class="badge">0</span></button>
-                <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO%20%F0%9F%91%8B%20Estoy%20viendo%20su%20cat%C3%A1logo." class="btn-whatsapp-header" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO%20%F0%9F%91%8B%20Estoy%20viendo%20el%20cat%C3%A1logo%20oficial." class="btn-whatsapp-header" target="_blank" rel="noopener">WhatsApp</a>
             </div>
         </div>
     </header>
@@ -144,11 +146,11 @@
         <section class="hero" id="inicio">
             <div class="container hero-container">
                 <div class="hero-content">
-                    <span class="hero-tag">¿Te dio un MERCADO LATINO?</span>
-                    <h1>El auténtico sabor latino, más cerca de ti.</h1>
-                    <p>Descubre tortillas, chiles, salsas, frijoles, conservas y muchos de los sabores que estabas buscando.</p>
+                    <span class="hero-tag">Catálogo Oficial 2026</span>
+                    <h1>Sabores de origen, calidad sin fronteras.</h1>
+                    <p>Descubre tortillas, chiles, salsas, frijoles y especialidades de Latinoamérica y México directamente para hostelería y distribución.</p>
                     <div class="hero-buttons">
-                        <a href="#catalogo" class="btn btn-primary">Ver productos</a>
+                        <a href="#catalogo" class="btn btn-primary">Ver catálogo completo</a>
                         <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO%20%F0%9F%91%8B" class="btn btn-whatsapp" target="_blank">Consultar por WhatsApp</a>
                     </div>
                 </div>
@@ -156,9 +158,9 @@
                     <h3>MERCADO LATINO</h3>
                     <p>"El sabor que estabas buscando."</p>
                     <ul class="banner-features">
-                        <li>🌮 Tortillas y Tostadas 100% Maíz</li>
+                        <li>🌮 Tortillas, Totopos y Tostadas</li>
                         <li>🌶️ Chiles Secos y en Conserva</li>
-                        <li>📦 Venta Minorista y Mayorista</li>
+                        <li>📦 Formatos Mayoristas y Minoristas</li>
                     </ul>
                 </div>
             </div>
@@ -167,35 +169,37 @@
         <section class="recorridos-section container">
             <div class="recorrido-grid">
                 <div class="recorrido-card">
-                    <h3>¿Te dio un MERCADO LATINO?</h3>
-                    <p>Encuentra tortillas, chiles, salsas, frijoles, conservas y muchos sabores que reconoces.</p>
-                    <a href="#catalogo" class="btn btn-outline">Explorar productos</a>
+                    <h3>¿Buscas un Mercado Latino?</h3>
+                    <p>Explora referencias de México, Perú, Colombia, Centroamérica y más con envíos peninsulares e internacionales[cite: 14].</p>
+                    <a href="#catalogo" class="btn btn-outline">Ver productos</a>
                 </div>
                 <div class="recorrido-card professional" id="mayoristas">
-                    <h3>¿Compras para tu negocio?</h3>
-                    <p>Consulta formatos por caja, referencias disponibles y opciones para restaurantes y tiendas.</p>
-                    <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO.%20Tengo%20un%20negocio%20y%20quiero%20informaci%C3%B3n%20mayorista." class="btn btn-primary" target="_blank">Solicitar información mayorista</a>
+                    <h3>¿Buscas un Mercado Latino para tu negocio o restaurante?</h3>
+                    <p>Accede a formatos por caja, sacos y opciones para hostelería con atención profesional personalizada.</p>
+                    <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO.%20Tengo%20un%20negocio%20y%20quiero%20consultar%20formatos%20mayoristas." class="btn btn-primary" target="_blank">Consulta mayorista</a>
                 </div>
             </div>
         </section>
 
         <section class="catalog-section container" id="catalogo">
             <div class="section-header">
-                <h2>Catálogo de Productos</h2>
-                <p>Encuentra lo que necesitas al instante.</p>
+                <h2>Catálogo Oficial de Productos</h2>
+                <p>Selecciona y consulta disponibilidad de forma instantánea.</p>
             </div>
             
             <div class="catalog-controls">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Buscar por nombre, SKU, marca (ej: jalapeño, guajillo, SXU277)...">
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre, SKU, categoría (ej: Guajillo, Tortilla, SXU277, Jalapeño)...">
                 </div>
                 <div class="filter-buttons" id="filterButtons">
                     <button class="filter-btn active" data-category="todos">Todos</button>
-                    <button class="filter-btn" data-category="Tortillas y Tostadas">Tortillas y Tostadas</button>
+                    <button class="filter-btn" data-category="Tortillas y Totopos">Tortillas y Totopos</button>
                     <button class="filter-btn" data-category="Chiles Secos">Chiles Secos</button>
                     <button class="filter-btn" data-category="Chiles en Conserva">Chiles en Conserva</button>
-                    <button class="filter-btn" data-category="Salsas">Salsas</button>
+                    <button class="filter-btn" data-category="Salsas y Sazonadores">Salsas y Sazonadores</button>
                     <button class="filter-btn" data-category="Frijoles y Granos">Frijoles y Granos</button>
+                    <button class="filter-btn" data-category="Panadería y Dulces">Panadería y Dulces</button>
+                    <button class="filter-btn" data-category="Bebidas y Cervezas">Bebidas y Cervezas</button>
                 </div>
             </div>
 
@@ -204,11 +208,11 @@
 
         <section class="contact-section container" id="contacto">
             <div class="contact-card">
-                <h2>¿Buscas algún producto?</h2>
-                <p>Cuéntanos qué necesitas y te ayudamos a encontrarlo.</p>
+                <h2>¿Tienes dudas o necesitas un pedido especial?</h2>
+                <p>Escríbenos directamente a través de WhatsApp o correo electrónico y te atenderemos con la máxima eficiencia.</p>
                 <div class="contact-actions">
-                    <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO" class="btn btn-whatsapp" target="_blank">Hablar por WhatsApp</a>
-                    <a href="mailto:missiontransfood@protonmail.com?subject=Consulta%20MERCADO%20LATINO" class="btn btn-primary">Enviar correo</a>
+                    <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO" class="btn btn-whatsapp" target="_blank">WhatsApp: +34 608 46 57 34</a>
+                    <a href="mailto:missiontransfood@protonmail.com?subject=Consulta%20MERCADO%20LATINO" class="btn btn-primary">missiontransfood@protonmail.com</a>
                 </div>
             </div>
         </section>
@@ -216,7 +220,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> <span>MERCADO LATINO</span>. Todos los derechos reservados.</p>
+            <p>&copy; <span id="currentYear"></span> <span>MERCADO LATINO</span>. Todos los derechos reservados. Correo: missiontransfood@protonmail.com</p>
         </div>
     </footer>
 
@@ -235,14 +239,31 @@
     <script>
         const WHATSAPP_NUM = "34608465734";
         const PRODUCTS = [
-            { id: "rxu019", sku: "RXU019", name: "Tortilla de Maíz Blanco Nixtamalizado 15 cm", category: "Tortillas y Tostadas", weight: "500 g", case: "Caja x 50 uds", price: null, shortDescription: "Tortilla de maíz blanco auténtica, ideal para tacos tradicionales.", brand: "Maíz Maya" },
-            { id: "rxu020", sku: "RXU020", name: "Tortilla de Maíz Azul Nixtamalizado 12 cm", category: "Tortillas y Tostadas", weight: "500 g", case: "Caja x 50 uds", price: null, shortDescription: "Tortilla de maíz azul artesanal de sabor profundo.", brand: "Maíz Maya" },
-            { id: "sxu277", sku: "SXU277", name: "Chile Seco Guajillo 1 kg", category: "Chiles Secos", weight: "1 kg", case: "Caja x 5 uds", price: null, shortDescription: "Chile seco de sabor profundo, ideal para salsas y adobos.", brand: "Sabormex" },
-            { id: "sxu175", sku: "SXU175", name: "Chile Seco Árbol 100g", category: "Chiles Secos", weight: "100 g", case: "Caja x 50 uds", price: null, shortDescription: "Chile de árbol seco, picante y aromático.", brand: "Sabormex" },
-            { id: "sxu031", sku: "SXU031", name: "Chile Jalapeño Rodajas 2,8 kg", category: "Chiles en Conserva", weight: "2,8 kg", case: "Caja x 3 uds", price: null, shortDescription: "Rodajas de chiles jalapeños en conserva, formato hostelería.", brand: "Sabormex" },
-            { id: "sxu106", sku: "SXU106", name: "Salsa Chipotle 2,8 kg", category: "Salsas", weight: "2,8 kg", case: "Caja x 3 uds", price: null, shortDescription: "Salsa chipotle ahumada con gran cuerpo.", brand: "Sabormex" },
-            { id: "sau157", sku: "SAU157", name: "Salsa Lizano 130 ml", category: "Salsas", weight: "130 ml", case: "Caja x 24 uds", price: null, shortDescription: "Tradicional salsa costarricense.", brand: "Lizano" },
-            { id: "sxu066", sku: "SXU066", name: "Frijol Negro Entero 1 kg", category: "Frijoles y Granos", weight: "1 kg", case: "Caja x 12 uds", price: null, shortDescription: "Frijol negro seleccionado de alta calidad.", brand: "Sabormex" }
+            { id: "sxc006", sku: "SXC006", name: "Totopo Frito Triangular 500g", category: "Tortillas y Totopos", weight: "500 g", case: "Caja x 12 uds", shortDescription: "Totopo frito triangular tradicional en formato hostelería[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=600&q=80" },
+            { id: "rxu019", sku: "RXU019", name: "Tortilla de Maíz Blanco Nixtamalizado 15 cm", category: "Tortillas y Totopos", weight: "500 g", case: "Caja x 50 uds", shortDescription: "Tortilla de maíz blanco auténtica, ideal para tacos tradicionales[cite: 14].", brand: "Maíz Maya", image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" },
+            { id: "rxu020", sku: "RXU020", name: "Tortilla de Maíz Azul Nixtamalizado 12 cm", category: "Tortillas y Totopos", weight: "500 g", case: "Caja x 50 uds", shortDescription: "Tortilla de maíz azul artesanal de sabor profundo[cite: 14].", brand: "Maíz Maya", image: "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxc031", sku: "SXC031", name: "Tortilla de Maíz para Freir 15 cm", category: "Tortillas y Totopos", weight: "550 g", case: "Caja x 16 uds", shortDescription: "Tortilla especial optimizada para freír y elaborar tostadas[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxc030", sku: "SXC030", name: "Taco Shell 240g", category: "Tortillas y Totopos", weight: "240 g", case: "Caja x 10 uds", shortDescription: "Tacos crujientes listos para rellenar[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxc002", sku: "SXC002", name: "Totopo Frito Redondo 500g", category: "Tortillas y Totopos", weight: "500 g", case: "Caja x 12 uds", shortDescription: "Totopo redondo frito para dipear[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu277", sku: "SXU277", name: "Chile Seco Guajillo 1 kg", category: "Chiles Secos", weight: "1 kg", case: "Caja x 5 uds", shortDescription: "Chile seco de sabor profundo, ideal para salsas y adobos[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu175", sku: "SXU175", name: "Chile Seco Árbol 100g", category: "Chiles Secos", weight: "100 g", case: "Caja x 50 uds", shortDescription: "Chile de árbol seco, picante y aromático[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu265", sku: "SXU265", name: "Chile Seco Árbol 1 kg", category: "Chiles Secos", weight: "1 kg", case: "Caja x 5 uds", shortDescription: "Chile de árbol seco en formato grande para hostelería[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu042", sku: "SXU042", name: "Chile Seco Guajillo 100g", category: "Chiles Secos", weight: "100 g", case: "Caja x 50 uds", shortDescription: "Chile guajillo seco en presentación de 100g[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu031", sku: "SXU031", name: "Chile Jalapeño Rodajas 2,8 kg", category: "Chiles en Conserva", weight: "2,8 kg", case: "Caja x 3 uds", shortDescription: "Rodajas de chiles jalapeños en conserva, formato hostelería[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1583160248552-3d6c703b0704?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu033", sku: "SXU033", name: "Chile Jalapeño Rodajas 800g", category: "Chiles en Conserva", weight: "800 g", case: "Caja x 12 uds", shortDescription: "Rodajas de chiles jalapeños en conserva[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1583160248552-3d6c703b0704?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu022", sku: "SXU022", name: "Chile Chipotle Adobado 2,8 kg", category: "Chiles en Conserva", weight: "2,8 kg", case: "Caja x 3 uds", shortDescription: "Chiles chipotles adobados en formato grande[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu106", sku: "SXU106", name: "Salsa Chipotle 2,8 kg", category: "Salsas y Sazonadores", weight: "2,8 kg", case: "Caja x 3 uds", shortDescription: "Salsa chipotle ahumada con gran cuerpo para preparaciones[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=80" },
+            { id: "sau157", sku: "SAU157", name: "Salsa Lizano 130 ml", category: "Salsas y Sazonadores", weight: "130 ml", case: "Caja x 24 uds", shortDescription: "Tradicional salsa costarricense de sabor inconfundible[cite: 14].", brand: "Lizano", image: "https://images.unsplash.com/photo-1472476443507-c3a598ec7d4b?auto=format&fit=crop&w=600&q=80" },
+            { id: "sau104", sku: "SAU104", name: "Salsa Lizano 280 ml", category: "Salsas y Sazonadores", weight: "280 ml", case: "Caja x 24 uds", shortDescription: "Salsa Lizano en presentación de 280 ml[cite: 14].", brand: "Lizano", image: "https://images.unsplash.com/photo-1472476443507-c3a598ec7d4b?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu125", sku: "SXU125", name: "Salsa Mexicana Roja 2,8 kg", category: "Salsas y Sazonadores", weight: "2,8 kg", case: "Caja x 3 uds", shortDescription: "Salsa mexicana roja para hostelería[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu136", sku: "SXU136", name: "Salsa Picante Etiqueta Negra Valentina 370g", category: "Salsas y Sazonadores", weight: "370 g", case: "Caja x 24 uds", shortDescription: "Salsa picante Valentina etiqueta negra[cite: 14].", brand: "Valentina", image: "https://images.unsplash.com/photo-1472476443507-c3a598ec7d4b?auto=format&fit=crop&w=600&q=80" },
+            { id: "sxu066", sku: "SXU066", name: "Frijol Negro Entero 1 kg", category: "Frijoles y Granos", weight: "1 kg", case: "Caja x 12 uds", shortDescription: "Frijol negro seleccionado de alta calidad[cite: 14].", brand: "Sabormex", image: "https://images.unsplash.com/photo-1585998006490-e544520e53a3?auto=format&fit=crop&w=600&q=80" },
+            { id: "sau156", sku: "SAU156", name: "Frijoles Rojos de Seda Naturas 900g", category: "Frijoles y Granos", weight: "900 g", case: "Caja x 12 uds", shortDescription: "Frijoles rojos de seda Naturas en bolsa[cite: 14].", brand: "Naturas", image: "https://images.unsplash.com/photo-1585998006490-e544520e53a3?auto=format&fit=crop&w=600&q=80" },
+            { id: "smu010", sku: "SMU010", name: "Frijoles Rojos Volteados Deliz 454g", category: "Frijoles y Granos", weight: "454 g", case: "Caja x 20 uds", shortDescription: "Frijoles rojos volteados tradicionales Deliz[cite: 14].", brand: "Deliz", image: "https://images.unsplash.com/photo-1585998006490-e544520e53a3?auto=format&fit=crop&w=600&q=80" },
+            { id: "sau034", sku: "SAU034", name: "Harina PAN Blanca 1 kg", category: "Panadería y Dulces", weight: "1 kg", case: "Caja x 10 uds", shortDescription: "Harina de maíz precocida para arepas tradicionales[cite: 14].", brand: "Harina PAN", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" },
+            { id: "sau032", sku: "SAU032", name: "Harina PAN Amarilla 1 kg", category: "Panadería y Dulces", weight: "1 kg", case: "Caja x 10 uds", shortDescription: "Harina de maíz amarillo precocida para arepas[cite: 14].", brand: "Harina PAN", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" },
+            { id: "sac001", sku: "SAC001", name: "Pony Malta Botella 330 ml", category: "Bebidas y Cervezas", weight: "330 ml", case: "Caja x 24 uds", shortDescription: "Bebida malta no alcohólica refrescante y energética[cite: 14].", brand: "Pony Malta", image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=600&q=80" },
+            { id: "sac026", sku: "SAC026", name: "Cerveza Club Colombia 330ml", category: "Bebidas y Cervezas", weight: "330 ml", case: "Caja x 24 uds", shortDescription: "Cerveza premium Club Colombia en botella[cite: 14].", brand: "Club Colombia", image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=600&q=80" }
         ];
 
         let consultaList = JSON.parse(localStorage.getItem('ml_consulta')) || [];
@@ -259,6 +280,9 @@
             }
             grid.innerHTML = items.map(p => `
                 <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="${p.image}" alt="${p.name}" loading="lazy">
+                    </div>
                     <div class="product-info">
                         <span class="product-category">${p.category}</span>
                         <h3 class="product-title">${p.name}</h3>
@@ -281,7 +305,7 @@
 
         searchInput.addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
-            const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(term) || p.sku.toLowerCase().includes(term) || p.category.toLowerCase().includes(term));
+            const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(term) || p.sku.toLowerCase().includes(term) || p.category.toLowerCase().includes(term) || p.brand.toLowerCase().includes(term));
             renderProducts(filtered);
         });
 
