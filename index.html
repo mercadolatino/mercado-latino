@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERCADO LATINO | Productos y Sabores Latinoamericanos</title>
+    <meta name="description" content="Descubre tortillas, chiles, salsas, frijoles, conservas y productos latinoamericanos. Consulta disponibilidad y realiza tu consulta fácilmente por WhatsApp.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-red: #D32F2F;
+            --brand-orange: #F57C00;
+            --brand-yellow: #FBC02D;
+            --brand-dark: #212121;
+            --brand-light: #FAFAFA;
+            --brand-cream: #FFF8E1;
+            --success: #2E7D32;
+            --border-color: #E0E0E0;
+            --text-muted: #757575;
+            --shadow-soft: 0 4px 12px rgba(0,0,0,0.06);
+            --radius: 10px;
+            --transition: all 0.3s ease;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; color: var(--brand-dark); background-color: var(--brand-light); line-height: 1.5; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        
+        /* Header */
+        .site-header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid var(--border-color); z-index: 1000; box-shadow: var(--shadow-soft); }
+        .header-container { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--brand-dark); text-decoration: none; }
+        .logo span { color: var(--brand-red); }
+        .nav-menu { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-menu a { text-decoration: none; color: var(--brand-dark); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+        .nav-menu a:hover { color: var(--brand-red); }
+        .header-actions { display: flex; align-items: center; gap: 0.75rem; }
+        .btn-consulta-header, .btn-whatsapp-header { background: var(--brand-cream); border: 1px solid var(--brand-yellow); color: var(--brand-dark); padding: 0.5rem 0.85rem; border-radius: var(--radius); font-size: 0.85rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: var(--transition); }
+        .btn-whatsapp-header { background: var(--success); color: #fff; border: none; }
+        .badge { background: var(--brand-red); color: #fff; padding: 0.1rem 0.4rem; border-radius: 50%; font-size: 0.75rem; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #FFF3E0 0%, #FFEBEE 100%); padding: 4rem 0; border-bottom: 1px solid var(--border-color); }
+        .hero-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+        .hero-tag { display: inline-block; background: var(--brand-red); color: #fff; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+        .hero h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
+        .hero p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .hero-buttons { display: flex; gap: 1rem; }
+        .hero-banner-card { background: #fff; padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow-soft); border-left: 6px solid var(--brand-red); }
+        .hero-banner-card h3 { font-size: 1.5rem; color: var(--brand-red); margin-bottom: 0.5rem; }
+        .hero-banner-card p { font-style: italic; margin-bottom: 1.5rem; }
+        .banner-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-weight: 500; }
+
+        /* Recorridos */
+        .recorridos-section { padding: 3rem 0; }
+        .recorrido-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .recorrido-card { background: #fff; padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow-soft); border: 1px solid var(--border-color); }
+        .recorrido-card.professional { background: var(--brand-dark); color: #fff; }
+        .recorrido-card.professional p { color: #BDBDBD; }
+        .recorrido-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .recorrido-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+        /* Botones */
+        .btn { display: inline-block; padding: 0.75rem 1.25rem; border-radius: var(--radius); font-weight: 600; text-decoration: none; text-align: center; cursor: pointer; transition: var(--transition); border: none; font-size: 0.9rem; }
+        .btn-primary { background: var(--brand-red); color: #fff; }
+        .btn-primary:hover { background: #B71C1C; }
+        .btn-whatsapp { background: var(--success); color: #fff; }
+        .btn-whatsapp:hover { background: #1B5E20; }
+        .btn-outline { background: transparent; border: 2px solid var(--brand-red); color: var(--brand-red); }
+        .btn-outline:hover { background: var(--brand-red); color: #fff; }
+
+        /* Catálogo */
+        .catalog-section { padding: 3rem 0; }
+        .section-header { text-align: center; margin-bottom: 2rem; }
+        .section-header h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .section-header p { color: var(--text-muted); }
+        .catalog-controls { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+        .search-box input { width: 100%; padding: 0.85rem 1rem; border-radius: var(--radius); border: 1px solid var(--border-color); font-size: 1rem; outline: none; }
+        .filter-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .filter-btn { background: #fff; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: var(--radius); font-size: 0.85rem; cursor: pointer; transition: var(--transition); font-weight: 500; }
+        .filter-btn.active, .filter-btn:hover { background: var(--brand-red); color: #fff; border-color: var(--brand-red); }
+        
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+        .product-card { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; border: 1px solid var(--border-color); }
+        .product-info { padding: 1.25rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-category { font-size: 0.75rem; text-transform: uppercase; color: var(--brand-orange); font-weight: 700; margin-bottom: 0.25rem; }
+        .product-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .product-weight { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .product-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; flex-grow: 1; }
+        .product-footer { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+        .product-price { font-weight: 700; font-size: 1.1rem; color: var(--brand-dark); }
+        .product-sku { font-size: 0.75rem; color: var(--text-muted); }
+        .product-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+        .product-actions .btn { padding: 0.5rem; font-size: 0.8rem; }
+        .btn-full { grid-column: span 2; }
+
+        /* Contacto & Footer */
+        .contact-section { padding: 3rem 0; }
+        .contact-card { background: linear-gradient(135deg, var(--brand-dark) 0%, #424242 100%); color: #fff; padding: 3rem; border-radius: var(--radius); text-align: center; }
+        .contact-card h2 { font-size: 2rem; margin-bottom: 0.75rem; }
+        .contact-card p { color: #BDBDBD; margin-bottom: 2rem; }
+        .contact-actions { display: flex; justify-content: center; gap: 1rem; }
+        .site-footer { background: #111; color: #fff; padding: 3rem 0 1.5rem 0; text-align: center; font-size: 0.85rem; color: #757575; }
+        .site-footer span { color: var(--brand-red); }
+
+        /* Botón Flotante WhatsApp */
+        .float-whatsapp { position: fixed; bottom: 2rem; right: 2rem; background: var(--success); color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; transition: var(--transition); }
+        .float-whatsapp:hover { transform: scale(1.1); }
+
+        /* Modales */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: var(--transition); padding: 1rem; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: #fff; width: 100%; max-width: 600px; border-radius: var(--radius); padding: 2rem; position: relative; max-height: 90vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .hero-container, .recorrido-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo">MERCADO <span>LATINO</span></a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Productos</a></li>
+                <li><a href="#mayoristas">Mayoristas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="header-actions">
+                <button class="btn-consulta-header" id="btnOpenConsulta">🛒 Mi consulta <span id="consultaCounter" class="badge">0</span></button>
+                <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO%20%F0%9F%91%8B%20Estoy%20viendo%20su%20cat%C3%A1logo." class="btn-whatsapp-header" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-tag">¿Te dio un MERCADO LATINO?</span>
+                    <h1>El auténtico sabor latino, más cerca de ti.</h1>
+                    <p>Descubre tortillas, chiles, salsas, frijoles, conservas y muchos de los sabores que estabas buscando.</p>
+                    <div class="hero-buttons">
+                        <a href="#catalogo" class="btn btn-primary">Ver productos</a>
+                        <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO%20%F0%9F%91%8B" class="btn btn-whatsapp" target="_blank">Consultar por WhatsApp</a>
+                    </div>
+                </div>
+                <div class="hero-banner-card">
+                    <h3>MERCADO LATINO</h3>
+                    <p>"El sabor que estabas buscando."</p>
+                    <ul class="banner-features">
+                        <li>🌮 Tortillas y Tostadas 100% Maíz</li>
+                        <li>🌶️ Chiles Secos y en Conserva</li>
+                        <li>📦 Venta Minorista y Mayorista</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="recorridos-section container">
+            <div class="recorrido-grid">
+                <div class="recorrido-card">
+                    <h3>¿Te dio un MERCADO LATINO?</h3>
+                    <p>Encuentra tortillas, chiles, salsas, frijoles, conservas y muchos sabores que reconoces.</p>
+                    <a href="#catalogo" class="btn btn-outline">Explorar productos</a>
+                </div>
+                <div class="recorrido-card professional" id="mayoristas">
+                    <h3>¿Compras para tu negocio?</h3>
+                    <p>Consulta formatos por caja, referencias disponibles y opciones para restaurantes y tiendas.</p>
+                    <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO.%20Tengo%20un%20negocio%20y%20quiero%20informaci%C3%B3n%20mayorista." class="btn btn-primary" target="_blank">Solicitar información mayorista</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-section container" id="catalogo">
+            <div class="section-header">
+                <h2>Catálogo de Productos</h2>
+                <p>Encuentra lo que necesitas al instante.</p>
+            </div>
+            
+            <div class="catalog-controls">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre, SKU, marca (ej: jalapeño, guajillo, SXU277)...">
+                </div>
+                <div class="filter-buttons" id="filterButtons">
+                    <button class="filter-btn active" data-category="todos">Todos</button>
+                    <button class="filter-btn" data-category="Tortillas y Tostadas">Tortillas y Tostadas</button>
+                    <button class="filter-btn" data-category="Chiles Secos">Chiles Secos</button>
+                    <button class="filter-btn" data-category="Chiles en Conserva">Chiles en Conserva</button>
+                    <button class="filter-btn" data-category="Salsas">Salsas</button>
+                    <button class="filter-btn" data-category="Frijoles y Granos">Frijoles y Granos</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid"></div>
+        </section>
+
+        <section class="contact-section container" id="contacto">
+            <div class="contact-card">
+                <h2>¿Buscas algún producto?</h2>
+                <p>Cuéntanos qué necesitas y te ayudamos a encontrarlo.</p>
+                <div class="contact-actions">
+                    <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO" class="btn btn-whatsapp" target="_blank">Hablar por WhatsApp</a>
+                    <a href="mailto:missiontransfood@protonmail.com?subject=Consulta%20MERCADO%20LATINO" class="btn btn-primary">Enviar correo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> <span>MERCADO LATINO</span>. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Consulta -->
+    <div class="modal-overlay" id="consultaModal">
+        <div class="modal-content">
+            <button class="modal-close" id="consultaClose">&times;</button>
+            <h2>Mi Lista de Consulta</h2>
+            <div id="consultaItems" style="margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.75rem;"></div>
+            <button class="btn btn-whatsapp" id="btnSendConsultaWhatsApp" style="width: 100%;">Consultar selección por WhatsApp</button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/34608465734?text=Hola,%20MERCADO%20LATINO%20%F0%9F%91%8B" class="float-whatsapp" target="_blank" rel="noopener">💬</a>
+
+    <script>
+        const WHATSAPP_NUM = "34608465734";
+        const PRODUCTS = [
+            { id: "rxu019", sku: "RXU019", name: "Tortilla de Maíz Blanco Nixtamalizado 15 cm", category: "Tortillas y Tostadas", weight: "500 g", case: "Caja x 50 uds", price: null, shortDescription: "Tortilla de maíz blanco auténtica, ideal para tacos tradicionales.", brand: "Maíz Maya" },
+            { id: "rxu020", sku: "RXU020", name: "Tortilla de Maíz Azul Nixtamalizado 12 cm", category: "Tortillas y Tostadas", weight: "500 g", case: "Caja x 50 uds", price: null, shortDescription: "Tortilla de maíz azul artesanal de sabor profundo.", brand: "Maíz Maya" },
+            { id: "sxu277", sku: "SXU277", name: "Chile Seco Guajillo 1 kg", category: "Chiles Secos", weight: "1 kg", case: "Caja x 5 uds", price: null, shortDescription: "Chile seco de sabor profundo, ideal para salsas y adobos.", brand: "Sabormex" },
+            { id: "sxu175", sku: "SXU175", name: "Chile Seco Árbol 100g", category: "Chiles Secos", weight: "100 g", case: "Caja x 50 uds", price: null, shortDescription: "Chile de árbol seco, picante y aromático.", brand: "Sabormex" },
+            { id: "sxu031", sku: "SXU031", name: "Chile Jalapeño Rodajas 2,8 kg", category: "Chiles en Conserva", weight: "2,8 kg", case: "Caja x 3 uds", price: null, shortDescription: "Rodajas de chiles jalapeños en conserva, formato hostelería.", brand: "Sabormex" },
+            { id: "sxu106", sku: "SXU106", name: "Salsa Chipotle 2,8 kg", category: "Salsas", weight: "2,8 kg", case: "Caja x 3 uds", price: null, shortDescription: "Salsa chipotle ahumada con gran cuerpo.", brand: "Sabormex" },
+            { id: "sau157", sku: "SAU157", name: "Salsa Lizano 130 ml", category: "Salsas", weight: "130 ml", case: "Caja x 24 uds", price: null, shortDescription: "Tradicional salsa costarricense.", brand: "Lizano" },
+            { id: "sxu066", sku: "SXU066", name: "Frijol Negro Entero 1 kg", category: "Frijoles y Granos", weight: "1 kg", case: "Caja x 12 uds", price: null, shortDescription: "Frijol negro seleccionado de alta calidad.", brand: "Sabormex" }
+        ];
+
+        let consultaList = JSON.parse(localStorage.getItem('ml_consulta')) || [];
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const grid = document.getElementById('productsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        function renderProducts(items) {
+            if(items.length === 0) {
+                grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 2rem;">No se encontraron productos.</p>`;
+                return;
+            }
+            grid.innerHTML = items.map(p => `
+                <div class="product-card">
+                    <div class="product-info">
+                        <span class="product-category">${p.category}</span>
+                        <h3 class="product-title">${p.name}</h3>
+                        <p class="product-weight">${p.weight} | ${p.case}</p>
+                        <p class="product-desc">${p.shortDescription}</p>
+                        <div class="product-footer">
+                            <span class="product-price">Consultar precio</span>
+                            <span class="product-sku">SKU: ${p.sku}</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline" onclick="addToConsulta('${p.id}')">Añadir a consulta</button>
+                            <button class="btn btn-whatsapp" onclick="whatsAppProduct('${p.sku}', '${p.name}')">WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        renderProducts(PRODUCTS);
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(term) || p.sku.toLowerCase().includes(term) || p.category.toLowerCase().includes(term));
+            renderProducts(filtered);
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                const cat = e.target.getAttribute('data-category');
+                if(cat === 'todos') {
+                    renderProducts(PRODUCTS);
+                } else {
+                    renderProducts(PRODUCTS.filter(p => p.category === cat));
+                }
+            });
+        });
+
+        window.whatsAppProduct = (sku, name) => {
+            const msg = `Hola, MERCADO LATINO 👋\n\nEstoy interesado/a en este producto:\n🌶️ ${name}\nSKU: ${sku}\n\n¿Me pueden indicar precio y disponibilidad?`;
+            window.open(`https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`, '_blank');
+        };
+
+        window.addToConsulta = (id) => {
+            const p = PRODUCTS.find(item => item.id === id);
+            if(!consultaList.some(item => item.id === id)) {
+                consultaList.push(p);
+                localStorage.setItem('ml_consulta', JSON.stringify(consultaList));
+                document.getElementById('consultaCounter').textContent = consultaList.length;
+                alert(`Añadido a consulta: ${p.name}`);
+            } else {
+                alert('El producto ya está en tu lista de consulta.');
+            }
+        };
+
+        document.getElementById('btnOpenConsulta').addEventListener('click', () => {
+            const container = document.getElementById('consultaItems');
+            if(consultaList.length === 0) {
+                container.innerHTML = `<p style="color:var(--text-muted); text-align:center;">Tu lista está vacía.</p>`;
+            } else {
+                container.innerHTML = consultaList.map(i => `<div style="background:#F9F9F9; padding:0.5rem; border-radius:6px; display:flex; justify-content:space-between; align-items:center;"><span>${i.name}</span><button style="border:none; background:#D32F2F; color:#fff; padding:0.2rem 0.5rem; border-radius:4px; cursor:pointer;" onclick="removeItem('${i.id}')">X</button></div>`).join('');
+            }
+            document.getElementById('consultaModal').classList.add('active');
+        });
+
+        document.getElementById('consultaClose').addEventListener('click', () => {
+            document.getElementById('consultaModal').classList.remove('active');
+        });
+
+        window.removeItem = (id) => {
+            consultaList = consultaList.filter(i => i.id !== id);
+            localStorage.setItem('ml_consulta', JSON.stringify(consultaList));
+            document.getElementById('consultaCounter').textContent = consultaList.length;
+            document.getElementById('btnOpenConsulta').click();
+        };
+
+        document.getElementById('btnSendConsultaWhatsApp').addEventListener('click', () => {
+            if(consultaList.length === 0) return;
+            let msg = `Hola, MERCADO LATINO 👋\n\nQuisiera consultar precio y disponibilidad de los siguientes productos:\n\n`;
+            consultaList.forEach((item, idx) => {
+                msg += `${idx + 1}. ${item.name} (SKU: ${item.sku})\n`;
+            });
+            window.open(`https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+
+        document.getElementById('consultaCounter').textContent = consultaList.length;
+    </script>
+</body>
+</html>
